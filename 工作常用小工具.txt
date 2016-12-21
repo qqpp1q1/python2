@@ -1,0 +1,34 @@
+=if(countif(Sheet2!$A$1:$A$44,A2),"S","F")
+
+
+--取匹配数据
+=INDEX(申报事项!B:B,MATCH(C6,申报事项!D:D,0))
+
+
+ultraEdit 匹配正则
+
+/*[]+[0-9]+[.][0-9]+//?*/
+/* c0a8204d14798851341272100d4ec7/0.5// */
+
+
+excel正则表达式和python类似 
+官方文档
+https://msdn.microsoft.com/zh-cn/library/ae5bf541(VS.80).aspx
+
+Private Sub RegEx_Replace()
+
+     Dim myRegExp As Object
+     Dim Myrange As Range, C As Range
+
+     Set myRegExp = CreateObject("vbscript.regexp")
+     Set Myrange = ActiveSheet.Range("A1:A6")
+
+     For Each C In Myrange
+         myRegExp.Pattern = "^/.*?//.*?/"
+         Set myMatches = myRegExp.Execute(C.Value)
+         If myMatches.Count >= 1 Then
+             Set myMatch = myMatches(0)
+             C.Value = myRegExp.Replace(C.Value, "")
+         End If
+     Next
+End Sub
