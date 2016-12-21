@@ -2,7 +2,7 @@
 
 
 --取匹配数据
-=INDEX(申报事项!B:B,MATCH(C6,申报事项!D:D,0))
+=INDEX(Sheet1!B:B,MATCH(C6,Sheet1!D:D,0))
 
 
 ultraEdit 匹配正则
